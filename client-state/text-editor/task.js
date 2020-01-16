@@ -2,12 +2,12 @@ let dataText = document.getElementById("editor");
 
 let previousText = localStorage.getItem("dataText");
 
-dataText.textContent = previousText;
+dataText.value = previousText;
 
-dataText.addEventListener("keypress", dataText_OnKeyPress);
+dataText.addEventListener("keyup", dataText_OnKeyUp);
 
-function dataText_OnKeyPress(e) {
-  localStorage.setItem("dataText", this.value + e.key);
+function dataText_OnKeyUp(e) {
+  localStorage.setItem("dataText", this.value);
 }
 
 clearBtn.addEventListener("click", function() {
